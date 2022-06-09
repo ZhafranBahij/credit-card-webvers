@@ -92,10 +92,10 @@ export default function Predict() {
   };
   return (
     <Template>
-      <h1 className="text-4xl tracking-tight text-gray-900 sm:text-5xl md:text-6xl font-title animate-pulse">
-        <span className="block xl:inline text-red-600">Prediction</span> <br />
+      <h1 className="text-4xl tracking-tight text-gray-900 sm:text-5xl md:text-6xl font-title ">
+        <span className="block xl:inline text-white">Prediction</span> <br />
       </h1>
-      <small className="text-red-300">No = 0, Yes = 1</small>
+      <small className="text-white text-opacity-50">No = 0, Yes = 1</small>
 
       <form onSubmit={handleSubmit} className="mt-5">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -106,9 +106,9 @@ export default function Predict() {
         <div class="flex sm:flex-row flex-col gap-4 mt-8">
           <button
             type="submit"
-            className="text-red-300 hover:text-red-900 bg-red-800 hover:bg-red-500 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+            className="text-black hover:text-white bg-white hover:bg-black focus:ring-4 focus:outline-none focus:ring-red-300  rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
           >
-            Submit
+            SUBMIT
           </button>
           <div
             className={

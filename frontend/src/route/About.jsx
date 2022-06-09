@@ -13,22 +13,21 @@ export default function App() {
   return (
     <Template>
       <div className="sm:text-center lg:text-left">
-        <h1 className="text-4xl tracking-tight text-gray-900 sm:text-5xl md:text-6xl font-title animate-pulse ">
-          <span className="block xl:inline text-red-600">About</span> <br />
+        <h1 className="text-4xl tracking-tight font-extrabold sm:text-5xl md:text-6xl font-title">
+          <span className="block xl:inline text-white ">About</span> <br />
         </h1>
-        <p className="mt-3 text-base text-red-700 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
-          The purpose of this app is to predict your heart. You can click
-          "prediction" or "PREDICT NOW" and then do prediction. Thanks to mentor
-          for guide our team to create fabulous app. The source for learning the
-          model is{" "}
+        <p className="mt-3 text-base text-white text-opacity-50 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
+          This app is for doing a customer segmentation to define marketing
+          strategy from an usage behavior of credit card. The dataset for this
+          prediction is from{" "}
           <a
-            href="https://www.kaggle.com/datasets/andrewmvd/heart-failure-clinical-data?resource=download"
-            className="hover:text-red-300"
+            href="https://www.kaggle.com/datasets/arjunbhasin2013/ccdata"
+            className="underline text-white text-opacity-50 hover:text-opacity-80"
+            target="_blank"
           >
-            HERE
+            Kaggle
           </a>{" "}
-          . Thank you for reading this section. I hope, you understand what the
-          purpose of this web.
+          .
         </p>
         <Thelink link="/" name="Back to home" />
       </div>
