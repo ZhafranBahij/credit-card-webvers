@@ -1,9 +1,10 @@
 # Starter pack
 from flask import Flask, send_from_directory, render_template
 from flask_restful import Api, Resource, reqparse
-# from flask_cors import CORS #comment this on deployment
+from flask_cors import CORS #comment this on deployment
 import numpy as np
 import joblib
+import pickle
 from flask import jsonify
 from flask import request
 
@@ -18,7 +19,7 @@ Karena ini memakai vite react + flask, jadinya pakai dist
 """
 # app = Flask(__name__, static_url_path='', static_folder='frontend/build')
 app = Flask(__name__, static_url_path='', static_folder='frontend/dist')
-# CORS(app) #comment this on deployment
+CORS(app) #comment this on deployment
 api = Api(app)
 
 
@@ -43,10 +44,12 @@ Agar bisa diterima oleh axios, dikirim dengan jsonify()
 """
 @app.route("/flask/get")
 def users_api():
-    message = "I hope you safe"
+    message = "Let's Predict This"
     return jsonify(message = message)
 
-model = joblib.load(open('./model/random_forest.joblib', 'rb'))
+# model = joblib.load(open('./model/random_forest.joblib', 'rb'))
+model_kmeans = pickle.load(open('./model/model_kmeans.pkl', 'rb'))
+scaling =  pickle.load(open('./model/scaling.pkl', 'rb'))
 
 """
 Ini saat form yang telah diisi di POST melalui axios
@@ -66,11 +69,14 @@ def jet():
         )
 
     final_features = [np.array(float_features)]
-    prediction = model.predict(final_features)
-    death_event = ['Will Alive', 'Please, check to Doctor, NOW!']
+    final_features = scaling.transform(final_features)
+    prediction = model_kmeans.predict(final_features)
+    print(final_features)
+    print(prediction)
+    cluster = ['Synchro', 'Synchro2', 'Synchro3', 'Synchro4', 'Synchro5']
 
     return jsonify(
-        message=death_event[int(prediction[0])],
+        message=int(prediction[0]),
     )
 
 @app.errorhandler(404)

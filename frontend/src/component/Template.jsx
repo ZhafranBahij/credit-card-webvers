@@ -1,15 +1,15 @@
 import "../App.css";
 import React from "react";
 import "../index.css";
-import HeartImage from "../img/heart.jpg";
+import CreditCardImage from "../img/credit_card2.jpg";
 import Navbar from "./Navbar";
 
 function App(props) {
   return (
     <>
-      <div className="relative bg-black overflow-hidden min-h-screen">
+      <div className="relative bg-zinc-900 overflow-hidden min-h-screen">
         <div className="max-w-7xl mx-auto">
-          <div className="relative z-10 pb-8 bg-black sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
+          <div className="relative z-10 pb-8 bg-zinc-900 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
             {/* <svg
               className="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-black transform translate-x-1/2"
               fill="currentColor"
@@ -30,8 +30,8 @@ function App(props) {
         <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
           <img
             className="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
-            src={HeartImage}
-            alt="Heart Image"
+            src={CreditCardImage}
+            alt="Credit Card Image"
           />
         </div>
       </div>

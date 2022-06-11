@@ -2,7 +2,7 @@ import "../App.css";
 import React from "react";
 import "../index.css";
 import { Link, NavLink } from "react-router-dom";
-import Zero2 from "../img/Zero2.svg";
+import Zero2 from "../img/Zero3.svg";
 
 /* This example requires Tailwind CSS v2.0+ */
 import { Popover, Transition } from "@headlessui/react";
@@ -17,22 +17,22 @@ const navigation = [
   {
     name: "Home",
     href: "/",
-    icon: <HomeIcon className="text-red-300 h-5 w-5 " />,
+    icon: <HomeIcon className="text-white h-5 w-5 " />,
   },
   {
     name: "About",
     href: "/about",
-    icon: <QuestionMarkCircleIcon className="text-red-300 h-5 w-5" />,
+    icon: <QuestionMarkCircleIcon className="text-white h-5 w-5" />,
   },
   {
     name: "Our Team",
     href: "/our",
-    icon: <UserGroupIcon className="text-red-300 h-5 w-5" />,
+    icon: <UserGroupIcon className="text-white h-5 w-5" />,
   },
   {
     name: "Prediction",
     href: "/predict",
-    icon: <VariableIcon className="text-red-300 h-5 w-5" />,
+    icon: <VariableIcon className="text-white h-5 w-5" />,
   },
 ];
 
@@ -64,8 +64,8 @@ function App() {
                   to={item.href}
                   className={({ isActive }) =>
                     isActive
-                      ? "font-glitch text-red-300  border-b-4 border-red-300"
-                      : "font-medium hover:font-glitch text-red-700 hover:text-red-300"
+                      ? "text-white  border-b-4 "
+                      : " text-white  text-opacity-50 hover:text-opacity-80"
                   }
                 >
                   {item.name}
@@ -75,7 +75,7 @@ function App() {
           </nav>
         </div>
 
-        <nav className="fixed bottom-0 bg-red-800 w-full  sm:hidden z-40">
+        <nav className="fixed bottom-0 bg-zinc-900 w-full  sm:hidden z-40">
           <div className="flex justify-evenly space-x-4">
             {navigation.map((item) => (
               <NavLink
@@ -83,8 +83,8 @@ function App() {
                 to={item.href}
                 className={({ isActive }) =>
                   isActive
-                    ? "text-red-800 bg-red-300 flex flex-col px-3 py-2 rounded-md text-base font-medium justify-items-center"
-                    : "text-red-300 flex flex-col px-3 py-2 rounded-md text-base font-medium justify-items-center"
+                    ? "text-zinc-900 bg-white flex flex-col px-3 py-2 rounded-md text-base font-medium justify-items-center"
+                    : "text-white flex flex-col px-3 py-2 rounded-md text-base font-medium justify-items-center"
                 }
               >
                 <div className="flex justify-center mb-0.5">{item.icon}</div>

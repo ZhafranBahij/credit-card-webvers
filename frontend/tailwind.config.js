@@ -4,8 +4,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ["Josefin Slab", "serif"],
-        title: ["Special Elite", "cursive"],
-        glitch: ["Rubik Glitch", "cursive"],
+        title: ["Yeseva One", "cursive"],
       },
     },
   },
