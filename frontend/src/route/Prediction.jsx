@@ -14,42 +14,45 @@ import InputSelect from "../component/InputSelect";
 export default function Predict() {
   const [getMessage, setGetMessage] = useState("Let's Predict");
 
-  const alertClass = {
-    alive:
-      "w-1/2 font-title font-bold p-4  text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800",
-    death:
-      "w-1/2 font-title font-bold p-4  text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800",
-  };
-
   // ini data yang akan diubah di form
   const [data, setData] = useState({
-    age: 30,
-    anaemia: 0,
-    creatine_phosphokinase: 92,
-    diabetes: 0,
-    ejection_fraction: 60,
-    high_blood_pressure: 0,
-    platelets: 317000,
-    serum_creatinine: 0.8,
-    serum_sodium: 140,
-    are_you_male: 0,
-    smoking: 0,
-    time: 74,
+    balance: 1,
+    balance_frequency: 1,
+    purchases: 1,
+    one_off_purchases: 1,
+    installment_purchases: 1,
+    cash_advance: 1,
+    purchases_frequency: 1,
+    one_off_purchases_frequency: 1,
+    purchases_installment_frequency: 1,
+    cash_advance_frequency: 1,
+    cash_advance_trx: 1,
+    purchases_trx: 1,
+    credit_limit: 1,
+    payments: 1,
+    minimum_payments: 1,
+    prc_full_payment: 1,
+    tenure: 1,
   });
 
   const labels = [
-    "age",
-    "anaemia",
-    "creatine_phosphokinase",
-    "diabetes",
-    "ejection_fraction",
-    "high_blood_pressure",
-    "platelets",
-    "serum_creatinine",
-    "serum_sodium",
-    "are_you_male",
-    "smoking",
-    "time",
+    "balance",
+    "balance_frequency",
+    "purchases",
+    "one_off_purchases",
+    "installment_purchases",
+    "cash_advance",
+    "purchases_frequency",
+    "one_off_purchases_frequency",
+    "purchases_installment_frequency",
+    "cash_advance_frequency",
+    "cash_advance_trx",
+    "purchases_trx",
+    "credit_limit",
+    "payments",
+    "minimum_payments",
+    "prc_full_payment",
+    "tenure",
   ];
   // Ini berguna untuk mendapatkan data json dari app.py yang routenya get dan method get
   useEffect(() => {
@@ -95,8 +98,6 @@ export default function Predict() {
       <h1 className="text-4xl tracking-tight text-gray-900 sm:text-5xl md:text-6xl font-title ">
         <span className="block xl:inline text-white">Prediction</span> <br />
       </h1>
-      <small className="text-white text-opacity-50">No = 0, Yes = 1</small>
-
       <form onSubmit={handleSubmit} className="mt-5">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {labels.map((name) => (
@@ -106,14 +107,12 @@ export default function Predict() {
         <div class="flex sm:flex-row flex-col gap-4 mt-8">
           <button
             type="submit"
-            className="text-black hover:text-white bg-white hover:bg-black focus:ring-4 focus:outline-none focus:ring-red-300  rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+            className="text-black hover:text-white bg-white hover:bg-black focus:ring-4 focus:outline-none focus:ring-zinc-300  rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
           >
             SUBMIT
           </button>
           <div
-            className={
-              getMessage == "Will Alive" ? alertClass.alive : alertClass.death
-            }
+            className="w-1/2 p-4  text-sm text-white bg-zinc-700 rounded-lg "
             role="alert"
           >
             {getMessage}
