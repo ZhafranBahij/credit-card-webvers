@@ -48,8 +48,8 @@ def users_api():
     return jsonify(message = message)
 
 # model = joblib.load(open('./model/random_forest.joblib', 'rb'))
-model_kmeans = pickle.load(open('./model/model_kmeans.pkl', 'rb'))
-scaling =  pickle.load(open('./model/scaling.pkl', 'rb'))
+model_kmeans = joblib.load(open('./model/model_kmeans.joblib', 'rb'))
+scaling =  joblib.load(open('./model/scaling.joblib', 'rb'))
 
 """
 Ini saat form yang telah diisi di POST melalui axios
