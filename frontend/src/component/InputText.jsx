@@ -3,6 +3,8 @@ import React from "react";
 import "../index.css";
 
 function App(props) {
+  const labelName = props.name.replace(/_/g, " ");
+
   return (
     <>
       <div>
@@ -10,7 +12,7 @@ function App(props) {
           htmlFor={props.name}
           className="block mb-2 text-md font-medium text-white text-opacity-80"
         >
-          {props.name}
+          {labelName}
         </label>
         <input
           type="text"

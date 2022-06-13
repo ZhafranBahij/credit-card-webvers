@@ -1,7 +1,7 @@
 import "../App.css";
 import React from "react";
 import "../index.css";
-import CreditCardImage from "../img/credit_card2.jpg";
+import CreditCardImage from "../img/credit_card.jpg";
 import Navbar from "./Navbar";
 
 function App(props) {

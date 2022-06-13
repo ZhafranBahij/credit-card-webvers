@@ -1,7 +1,7 @@
 import axios from "axios";
 import { Routes, Route, Link } from "react-router-dom";
 import "../App.css";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import "../index.css";
 
 /* This example requires Tailwind CSS v2.0+ */
@@ -11,8 +11,15 @@ import Thelink from "../component/Thelink";
 import InputText from "../component/InputText";
 import InputSelect from "../component/InputSelect";
 
+// for animation
+import { gsap } from "gsap";
+
 export default function Predict() {
   const [getMessage, setGetMessage] = useState("Let's Predict");
+
+  // store a reference
+  const titleRef = useRef();
+  const formRef = useRef();
 
   // ini data yang akan diubah di form
   const [data, setData] = useState({
@@ -24,7 +31,7 @@ export default function Predict() {
     cash_advance: 1,
     purchases_frequency: 1,
     one_off_purchases_frequency: 1,
-    purchases_installment_frequency: 1,
+    purchases_installment_frq: 1,
     cash_advance_frequency: 1,
     cash_advance_trx: 1,
     purchases_trx: 1,
@@ -44,7 +51,7 @@ export default function Predict() {
     "cash_advance",
     "purchases_frequency",
     "one_off_purchases_frequency",
-    "purchases_installment_frequency",
+    "purchases_installment_frq",
     "cash_advance_frequency",
     "cash_advance_trx",
     "purchases_trx",
@@ -67,6 +74,18 @@ export default function Predict() {
         console.log(error);
       });
   }, []);
+
+  // wait until DOM has been rendered
+  useEffect(() => {
+    gsap.from(titleRef.current, { x: 100, opacity: 0.2 });
+    gsap.to(titleRef.current, { duration: 1, x: 0, opacity: 1 });
+    gsap.from(formRef.current, { opacity: 0.2, scale: 0.5 });
+    gsap.to(formRef.current, {
+      duration: 1,
+      opacity: 1,
+      scale: 1,
+    });
+  });
 
   // If a form was typed
   const handleChange = (event) => {
@@ -95,10 +114,13 @@ export default function Predict() {
   };
   return (
     <Template>
-      <h1 className="text-4xl tracking-tight text-gray-900 sm:text-5xl md:text-6xl font-title ">
+      <h1
+        className="text-4xl tracking-tight text-gray-900 sm:text-5xl md:text-6xl font-title "
+        ref={titleRef}
+      >
         <span className="block xl:inline text-white">Prediction</span> <br />
       </h1>
-      <form onSubmit={handleSubmit} className="mt-5">
+      <form onSubmit={handleSubmit} className="mt-5" ref={formRef}>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {labels.map((name) => (
             <InputText name={name} handleChange={handleChange} data={data} />
