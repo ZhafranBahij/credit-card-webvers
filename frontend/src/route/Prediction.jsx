@@ -85,7 +85,7 @@ export default function Predict() {
       opacity: 1,
       scale: 1,
     });
-  });
+  }, [titleRef, formRef]);
 
   // If a form was typed
   const handleChange = (event) => {
