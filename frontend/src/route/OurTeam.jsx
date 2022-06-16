@@ -32,7 +32,7 @@ export default function Our() {
           ref={titleRef}
         >
           <span className="block xl:inline text-white">
-            Member of Group 4 :
+            Member of Group 2 :
           </span>{" "}
           <br />
         </h1>

@@ -137,7 +137,7 @@ export default function Predict() {
             className="w-1/2 p-4  text-sm text-white bg-zinc-700 rounded-lg "
             role="alert"
           >
-            {getMessage}
+            Cluster : {getMessage}
           </div>
         </div>
       </form>
